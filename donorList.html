@@ -1,0 +1,62 @@
+<!DOCTYPE html><html>
+<head>
+<title>Donor List</title><style>
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(#7a0019,#b3002d);
+text-align:center;
+color:white;
+}
+
+h1{
+margin-top:40px;
+font-size:40px;
+}
+
+table{
+margin:auto;
+margin-top:30px;
+background:white;
+color:black;
+border-collapse:collapse;
+font-size:18px;
+}
+
+th,td{
+padding:12px 20px;
+border:1px solid black;
+}
+
+button{
+padding:8px 14px;
+font-size:16px;
+background:#8B0000;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+a{
+color:white;
+font-size:18px;
+}
+</style></head><body><h1>Donor List</h1><table><tr>
+<th>ID</th>
+<th>Name</th>
+<th>Blood Group</th>
+<th>Action</th>
+</tr><tr th:each="donor : ${donors}">
+<td th:text="${donor.id}"></td>
+<td th:text="${donor.name}"></td>
+<td th:text="${donor.bloodGroup}"></td><td>
+<a th:href="@{/donor/delete/{id}(id=${donor.id})}">
+<button>Delete</button>
+</a>
+</td></tr></table><br><br>
+
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>

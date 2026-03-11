@@ -1,0 +1,46 @@
+<!DOCTYPE html><html>
+<head>
+<title>Blood Stock</title><style>
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(#7a0019,#b3002d);
+text-align:center;
+color:white;
+}
+
+h1{
+margin-top:40px;
+font-size:40px;
+}
+
+table{
+margin:auto;
+margin-top:30px;
+background:white;
+color:black;
+border-collapse:collapse;
+font-size:18px;
+}
+
+th,td{
+padding:12px 20px;
+border:1px solid black;
+}
+
+a{
+color:white;
+font-size:18px;
+}
+</style></head><body><h1>Blood Stock</h1><table><tr>
+<th>Blood Group</th>
+<th>Units</th>
+</tr><tr th:each="b : ${blood}">
+<td th:text="${b.bloodGroup}"></td>
+<td th:text="${b.units}"></td>
+</tr></table><br><br>
+
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>

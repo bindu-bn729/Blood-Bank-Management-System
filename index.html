@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>Blood Bank Management</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#b71c1c;
+margin:0;
+}
+
+.container{
+background:white;
+margin:20px;
+padding:20px;
+border-radius:5px;
+}
+
+h1{
+color:#b71c1c;
+}
+
+h2{
+color:#b71c1c;
+}
+
+input,select{
+padding:6px;
+margin-right:10px;
+}
+
+button{
+background:#b71c1c;
+color:white;
+border:none;
+padding:6px 12px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+th{
+background:#b71c1c;
+color:white;
+padding:8px;
+}
+
+td{
+border:1px solid #ddd;
+padding:8px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Blood Bank Management System</h1>
+
+<hr>
+
+<h2>Add Donor</h2>
+
+<form action="/addDonor" method="post">
+
+<input type="text" name="name" placeholder="Name">
+
+<input type="number" name="age" placeholder="Age">
+
+<select name="bloodGroup">
+
+<option>A+</option>
+<option>B+</option>
+<option>O+</option>
+<option>AB+</option>
+<option>A-</option>
+<option>B-</option>
+<option>O-</option>
+<option>AB-</option>
+
+</select>
+
+<button>Add Donor</button>
+
+</form>
+
+<hr>
+
+
+<h2>Add Blood Stock</h2>
+
+<form action="/addStock" method="post">
+
+<select name="bloodGroup">
+
+<option>A+</option>
+<option>B+</option>
+<option>O+</option>
+<option>AB+</option>
+<option>A-</option>
+<option>B-</option>
+<option>O-</option>
+<option>AB-</option>
+
+</select>
+
+<input type="number" name="units" placeholder="Units">
+
+<button>Add Stock</button>
+
+</form>
+
+<hr>
+
+
+<h2>Issue Blood</h2>
+
+<form action="/issueBlood" method="post">
+
+<select name="bloodGroup">
+
+<option>A+</option>
+<option>B+</option>
+<option>O+</option>
+<option>AB+</option>
+<option>A-</option>
+<option>B-</option>
+<option>O-</option>
+<option>AB-</option>
+
+</select>
+
+<input type="number" name="units" placeholder="Units">
+
+<button>Issue Blood</button>
+
+</form>
+
+<hr>
+
+
+<h2>Donor List</h2>
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Blood Group</th>
+</tr>
+
+<tr th:each="d : ${donors}">
+<td th:text="${d.name}"></td>
+<td th:text="${d.age}"></td>
+<td th:text="${d.bloodGroup}"></td>
+</tr>
+
+</table>
+
+<hr>
+
+
+<h2>Blood Stock</h2>
+
+<table>
+
+<tr>
+<th>Blood Group</th>
+<th>Units</th>
+</tr>
+
+<tr th:each="s : ${stocks}">
+<td th:text="${s.bloodGroup}"></td>
+<td th:text="${s.units}"></td>
+</tr>
+
+</table>
+
+</div>
+
+</body>
+</html>
