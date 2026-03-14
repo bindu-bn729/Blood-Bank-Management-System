@@ -32,5 +32,4 @@ This project is a web-based application developed to manage blood donors and blo
 4. Run DemoApplication.java
 5. Open browser and access the application
 
-## Author
-Bindu
+
